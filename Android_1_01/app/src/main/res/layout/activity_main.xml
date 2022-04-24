@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/teal_700"
+        android:text="@string/MyTextView" />
+
+    <EditText
+        android:id="@+id/MyEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/MyEditText"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/MyButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MyButton"
+        android:textSize="48sp"
+        android:textStyle="italic" />
+
+    <Switch
+        android:id="@+id/MySwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/MySwitch"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/purple_200"/>
+
+    <CheckBox
+        android:id="@+id/MyCheckBox"
+        style="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MyCheckBox"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <ToggleButton
+        android:id="@+id/MyToggleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/MyToggleButtonOff"
+        android:textOn="@string/MyToggleButtonOn" />
+
+    <CalendarView
+        android:id="@+id/MyCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <include
+        layout="@layout/second_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

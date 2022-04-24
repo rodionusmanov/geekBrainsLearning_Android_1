@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/MyText"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:inputType="text"
+        android:hint="text"/>
+
+    <EditText
+        android:id="@+id/MyTextPerson"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:inputType="textPersonName"
+        android:hint="textPersonName"/>
+
+    <EditText
+        android:id="@+id/MyPhone"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:inputType="phone"
+        android:hint="phone"/>
+
+    <EditText
+        android:id="@+id/MyNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:inputType="number"
+        android:hint="number"/>
+
+    <EditText
+        android:id="@+id/MyTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:inputType="textPassword"
+        android:hint="textPassword"/>
+
+    <EditText
+        android:id="@+id/MyTextEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:inputType="textEmailAddress"
+        android:hint="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/MyTime"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:inputType="time"
+        android:hint="time"/>
+
+    <Button
+        android:id="@+id/MyButtonTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:ignore="SpeakableTextPresentCheck" />@string/"MyButtonTwo" />
+
+    <Switch
+        android:id="@+id/MySwitchTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:text="Скрыть кнопку" />
+
+</LinearLayout>
