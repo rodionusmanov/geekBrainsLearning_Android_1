@@ -3,6 +3,8 @@ package com.example.android_1_02;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -17,16 +19,67 @@ public class MainActivity extends AppCompatActivity {
     private TextView lineFour;
     private int calculatorStage = 0;
     CharSequence line = "";
+    private static final String NameSharedPreference = "LOGIN";
+    private static final String APP_THEME = "APP_THEME";
+    private static int themeNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(getAppTheme(R.style.NightCalculatorTheme));
         setContentView(R.layout.activity_main);
+
+
+        /*Intent intent = new Intent(MainActivity.this, StylesActivity.class);        startActivity(intent);*/
+
+
         lineOne = findViewById(R.id.calculator_display1);
         lineTwo = findViewById(R.id.calculator_display2);
         lineThree = findViewById(R.id.calculator_display3);
         lineFour = findViewById(R.id.calculator_display4);
+        initViews();
 
+    }
+
+    private void initViews() {
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/YeomanJackCondensed.otf");
+        lineOne.setTypeface(tf);
+        lineTwo.setTypeface(tf);
+        lineThree.setTypeface(tf);
+        lineFour.setTypeface(tf);
+    }
+
+    public void themeSwitchOnClick(View view) {
+        themeNumber = (themeNumber + 1) % 2;
+        setAppTheme(themeNumber);
+        recreate();
+    }
+
+    private int getAppTheme(int themeNumber) {
+        return codeStyleToStyleId(getCodeStyle(themeNumber));
+    }
+
+    private int getCodeStyle(int codeStyle) {
+        SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference, MODE_PRIVATE);
+        return sharedPref.getInt(APP_THEME, codeStyle);
+    }
+
+    private void setAppTheme(int codeStyle) {
+        SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(APP_THEME, codeStyle);
+        editor.apply();
+    }
+
+    private int codeStyleToStyleId(int codeStyle) {
+        switch (codeStyle) {
+            case (0):
+                return R.style.NightCalculatorTheme;
+            case (1):
+                return R.style.DayCalculatorTheme;
+            default:
+                return R.style.NightCalculatorTheme;
+        }
     }
 
     public void button0_onClick(View view) {
@@ -240,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
                 lineOne.setText(String.valueOf(argumentOne.multiply(argumentTwo)));
                 break;
             case ("/"):
-                lineOne.setText(String.valueOf(argumentOne.divide(argumentTwo,4,6)));
+                lineOne.setText(String.valueOf(argumentOne.divide(argumentTwo, 4, 6)));
                 break;
             default:
                 break;

@@ -13,4 +13,23 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="DayCalculatorTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@drawable/wood_background</item>
+    </style>
+
+    <style name="NightCalculatorTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@drawable/wood_background_night</item>
+    </style>
+
+    <style name="DisplayStyle">
+        <item name="android:background">@color/display</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_marginEnd">@dimen/portrait_display_sideMargin</item>>
+        <item name="android:layout_marginStart">@dimen/portrait_display_sideMargin</item>>
+        <item name="android:text">@string/button_starttext</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/portrait_display_textSize</item>
+    </style>
+
 </resources>
