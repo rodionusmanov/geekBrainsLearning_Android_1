@@ -20,5 +20,7 @@
     <string name="button_clear">C</string>
     <string name="button_delete">del</string>
     <string name="button_starttext"> </string>
+    <string name="themeSwitch_on">DAY</string>
+    <string name="themeSwitch_off">off</string>
 
 </resources>

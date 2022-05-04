@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="landscape_button_textSize">30sp</dimen>
+    <dimen name="landscape_button_sideMargin">5dp</dimen>
+    <dimen name="landscape_button_height">62dp</dimen>
+    <dimen name="landscape_button_width">60dp</dimen>
+    <dimen name="landscape_display_width">390dp</dimen>
+    <dimen name="landscape_display_height">55dp</dimen>
+    <dimen name="landscape_display_sideMargin">16dp</dimen>
+    <dimen name="landscape_display_textSize">30sp</dimen>
+    <dimen name="portrait_button_textSize">30sp</dimen>
+    <dimen name="portrait_button_sideMargin">5dp</dimen>
+    <dimen name="portrait_button_height">80dp</dimen>
+    <dimen name="portrait_button_width">70dp</dimen>
+<!--    <dimen name="portrait_display_width">300dp</dimen>-->
+    <dimen name="portrait_display_height">55dp</dimen>
+    <dimen name="portrait_display_sideMargin">16dp</dimen>
+    <dimen name="portrait_display_textSize">30sp</dimen>
+</resources>

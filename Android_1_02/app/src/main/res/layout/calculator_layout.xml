@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/CalculatorLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/wood_background">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -21,210 +20,267 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_8"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_8"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button8_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_7"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_7"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button7_onClick"
         app:layout_constraintEnd_toStartOf="@id/button_8"
         app:layout_constraintTop_toTopOf="@id/button_8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_9"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_9"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button9_onClick"
-        app:layout_constraintStart_toStartOf="@id/guideline4"
+        app:layout_constraintStart_toEndOf="@id/button_8"
         app:layout_constraintTop_toTopOf="@id/guideline5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_5"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_5"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button5_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/button_8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_4"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_4"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button4_onClick"
         app:layout_constraintEnd_toStartOf="@id/button_5"
         app:layout_constraintTop_toBottomOf="@id/button_7" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_6"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_6"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button6_onClick"
-        app:layout_constraintStart_toStartOf="@id/guideline4"
+        app:layout_constraintStart_toEndOf="@id/button_5"
         app:layout_constraintTop_toBottomOf="@id/button_9" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_2"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_2"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button2_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/button_5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_1"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_1"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button1_onClick"
         app:layout_constraintEnd_toStartOf="@id/button_2"
         app:layout_constraintTop_toBottomOf="@id/button_4" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_3"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_3"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button3_onClick"
-        app:layout_constraintStart_toStartOf="@id/guideline4"
+        app:layout_constraintStart_toEndOf="@id/button_2"
         app:layout_constraintTop_toBottomOf="@id/button_6" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_0"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_0"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="button0_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/button_2" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_dot"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_dot"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonDot_onClick"
-        app:layout_constraintStart_toStartOf="@id/guideline4"
+        app:layout_constraintStart_toEndOf="@id/button_0"
         app:layout_constraintTop_toBottomOf="@+id/button_3" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_multiply"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_multiply"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonMultiply_onClick"
         app:layout_constraintStart_toEndOf="@id/button_9"
         app:layout_constraintTop_toBottomOf="@id/guideline5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_minus"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_minus"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonMinus_onClick"
         app:layout_constraintStart_toEndOf="@id/button_6"
         app:layout_constraintTop_toBottomOf="@id/button_multiply" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_plus"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_plus"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonPlus_onClick"
         app:layout_constraintStart_toEndOf="@id/button_3"
         app:layout_constraintTop_toBottomOf="@id/button_minus" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_even"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_even"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonEven_onClick"
         app:layout_constraintStart_toEndOf="@id/button_dot"
         app:layout_constraintTop_toBottomOf="@id/button_plus" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_devide"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_devide"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonDevide_onClick"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintStart_toEndOf="@id/button_percent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_percent"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_percent"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonPercent_onClick"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
-        app:layout_constraintStart_toEndOf="@id/guideline4" />
+        app:layout_constraintStart_toEndOf="@id/button_delete" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_delete"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:onClick="buttonDelete_onClick"
         app:icon="@android:drawable/ic_input_delete"
+        app:iconGravity="start"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toEndOf="@id/guideline4" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_clear"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:backgroundTint="@color/button_grey"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_clear"
-        android:textSize="30sp"
+        android:textSize="@dimen/portrait_button_textSize"
+        android:fontFamily="@font/yeomanjackcondensed"
         android:onClick="buttonClear_onClick"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toStartOf="@id/button_delete" />
@@ -232,15 +288,8 @@
     <TextView
         android:id="@+id/calculator_display1"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#BFFFFFFF"
-        android:inputType="number"
-        android:text="@string/button_starttext"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        android:gravity="end"
+        android:layout_height="@dimen/portrait_display_height"
+        style="@style/DisplayStyle"
         app:layout_constraintBottom_toTopOf="@id/button_devide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -248,15 +297,8 @@
     <TextView
         android:id="@+id/calculator_display2"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#BFFFFFFF"
-        android:inputType="number"
-        android:text="@string/button_starttext"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        android:gravity="end"
+        android:layout_height="@dimen/portrait_display_height"
+        style="@style/DisplayStyle"
         app:layout_constraintBottom_toTopOf="@id/calculator_display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -264,15 +306,8 @@
     <TextView
         android:id="@+id/calculator_display3"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#BFFFFFFF"
-        android:inputType="number"
-        android:text="@string/button_starttext"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        android:gravity="end"
+        android:layout_height="@dimen/portrait_display_height"
+        style="@style/DisplayStyle"
         app:layout_constraintBottom_toTopOf="@id/calculator_display2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -280,17 +315,23 @@
     <TextView
         android:id="@+id/calculator_display4"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#BFFFFFFF"
-        android:inputType="number"
-        android:text="@string/button_starttext"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        android:gravity="end"
+        android:layout_height="@dimen/portrait_display_height"
+        style="@style/DisplayStyle"
         app:layout_constraintBottom_toTopOf="@id/calculator_display3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/switch_theme"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:textSize="40sp"
+        android:onClick="themeSwitchOnClick"
+        app:layout_constraintEnd_toStartOf="@+id/button_0"
+        app:layout_constraintTop_toBottomOf="@+id/button_1" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
