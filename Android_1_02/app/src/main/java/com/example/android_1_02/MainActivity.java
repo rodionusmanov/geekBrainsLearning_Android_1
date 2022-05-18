@@ -3,11 +3,14 @@ package com.example.android_1_02;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 
@@ -21,17 +24,13 @@ public class MainActivity extends AppCompatActivity {
     CharSequence line = "";
     private static final String NameSharedPreference = "LOGIN";
     private static final String APP_THEME = "APP_THEME";
-    private static int themeNumber = 0;
+    public static int themeNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(getAppTheme(R.style.NightCalculatorTheme));
+        setTheme(getAppTheme(themeNumber));
         setContentView(R.layout.activity_main);
-
-
-        /*Intent intent = new Intent(MainActivity.this, StylesActivity.class);        startActivity(intent);*/
-
 
         lineOne = findViewById(R.id.calculator_display1);
         lineTwo = findViewById(R.id.calculator_display2);
@@ -42,18 +41,247 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/YeomanJackCondensed.otf");
+        /*Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/YeomanJackCondensed.otf");
         lineOne.setTypeface(tf);
         lineTwo.setTypeface(tf);
         lineThree.setTypeface(tf);
-        lineFour.setTypeface(tf);
+        lineFour.setTypeface(tf);*/
+        Button button0 = findViewById(R.id.button_0);
+        Button button1 = findViewById(R.id.button_1);
+        Button button2 = findViewById(R.id.button_2);
+        Button button3 = findViewById(R.id.button_3);
+        Button button4 = findViewById(R.id.button_4);
+        Button button5 = findViewById(R.id.button_5);
+        Button button6 = findViewById(R.id.button_6);
+        Button button7 = findViewById(R.id.button_7);
+        Button button8 = findViewById(R.id.button_8);
+        Button button9 = findViewById(R.id.button_9);
+        Button buttonDot = findViewById(R.id.button_dot);
+        Button buttonClear = findViewById(R.id.button_clear);
+        Button buttonDelete = findViewById(R.id.button_delete);
+        Button buttonPlus = findViewById(R.id.button_plus);
+        Button buttonMinus = findViewById(R.id.button_minus);
+        Button buttonMultiply = findViewById(R.id.button_multiply);
+        Button buttonDevide = findViewById(R.id.button_devide);
+        Button buttonPercent = findViewById(R.id.button_percent);
+        Button buttonEven = findViewById(R.id.button_even);
+
+        Button themeButton = findViewById(R.id.themeButton);
+
+        button0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("0");
+            }
+        });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("1");
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("2");
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("3");
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("4");
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("5");
+            }
+        });
+
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("6");
+            }
+        });
+
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("7");
+            }
+        });
+
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("8");
+            }
+        });
+
+        button9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkStage("number");
+                stageAction("9");
+            }
+        });
+
+        buttonDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!dotPushed) {
+                    checkStage("number");
+                    stageAction(".");
+                }
+                dotPushed = true;
+            }
+        });
+
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calculatorStage = 0;
+                lineOne.setText("");
+                lineTwo.setText("");
+                lineThree.setText("");
+                lineFour.setText("");
+                dotPushed = false;
+            }
+        });
+
+        buttonPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calculatorStage != 2) {
+                    checkStage("symbol");
+                    stageAction("+");
+                }
+            }
+        });
+
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calculatorStage != 2) {
+                    checkStage("symbol");
+                    stageAction("-");
+                }
+            }
+        });
+
+        buttonMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calculatorStage != 2) {
+                    checkStage("symbol");
+                    stageAction("x");
+                }
+            }
+        });
+
+        buttonDevide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calculatorStage != 2) {
+                    checkStage("symbol");
+                    stageAction("/");
+                }
+            }
+        });
+
+        buttonEven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calculatorStage == 2) {
+                    lineFour.setText(lineThree.getText());
+                    lineThree.setText(lineTwo.getText());
+                    lineTwo.setText(lineOne.getText());
+                    lineOne.setText("");
+                    if (checkDevisionByZero(String.valueOf(lineTwo.getText()), String.valueOf(lineThree.getText()))) {
+                        calculatorStage = 3;
+                        lineOne.setText("Деление на ноль!");
+                    } else {
+                        calculationSequence();
+                        calculatorStage = 3;
+                    }
+                    dotPushed = false;
+                }
+            }
+        });
+
+        buttonPercent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BigDecimal argumentForPercent;
+                switch (calculatorStage) {
+                    case (0):
+                        if (0 != lineOne.getText().length()) {
+                            lineTwo.setText(lineOne.getText());
+                            argumentForPercent = BigDecimal.valueOf(Double.parseDouble(lineTwo.getText().toString()) / 100);
+                            lineOne.setText(String.valueOf(argumentForPercent) + "%");
+                            calculatorStage = 3;
+                        }
+                        break;
+                    case (1):
+                        lineOne.setText("");
+                        argumentForPercent = BigDecimal.valueOf(Double.parseDouble(lineTwo.getText().toString()) / 100);
+                        lineOne.setText(String.valueOf(argumentForPercent) + "%");
+                        calculatorStage = 3;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calculatorStage == 1) {
+                    lineOne.setText("");
+                } else if (lineOne.getText().length() > 0) {
+                    lineOne.setText(lineOne.getText().subSequence(0, lineOne.getText().length() - 1));
+                }
+            }
+        });
+
+        themeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentTheme = new Intent(MainActivity.this, ThemeActivity.class);
+                finish();
+                startActivity(intentTheme);
+            }
+        });
+
     }
 
-    public void themeSwitchOnClick(View view) {
-        themeNumber = (themeNumber + 1) % 2;
-        setAppTheme(themeNumber);
-        recreate();
+    private boolean checkDevisionByZero(String valueOf2, String valueOf3) {
+        return (Double.valueOf(valueOf2).equals(Double.valueOf(0.0)) && valueOf3.equals("/"));
     }
+
 
     private int getAppTheme(int themeNumber) {
         return codeStyleToStyleId(getCodeStyle(themeNumber));
@@ -64,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
         return sharedPref.getInt(APP_THEME, codeStyle);
     }
 
-    private void setAppTheme(int codeStyle) {
+    void setAppTheme(int codeStyle) {
         SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt(APP_THEME, codeStyle);
@@ -74,141 +302,15 @@ public class MainActivity extends AppCompatActivity {
     private int codeStyleToStyleId(int codeStyle) {
         switch (codeStyle) {
             case (0):
-                return R.style.NightCalculatorTheme;
+                return R.style.Theme_Android_1_02;
             case (1):
                 return R.style.DayCalculatorTheme;
-            default:
+            case (2):
                 return R.style.NightCalculatorTheme;
-        }
-    }
-
-    public void button0_onClick(View view) {
-        checkStage("number");
-        stageAction("0");
-    }
-
-    public void button1_onClick(View view) {
-        checkStage("number");
-        stageAction("1");
-    }
-
-    public void button2_onClick(View view) {
-        checkStage("number");
-        stageAction("2");
-    }
-
-    public void button3_onClick(View view) {
-        checkStage("number");
-        stageAction("3");
-    }
-
-    public void button4_onClick(View view) {
-        checkStage("number");
-        stageAction("4");
-    }
-
-    public void button5_onClick(View view) {
-        checkStage("number");
-        stageAction("5");
-    }
-
-    public void button6_onClick(View view) {
-        checkStage("number");
-        stageAction("6");
-    }
-
-    public void button7_onClick(View view) {
-        checkStage("number");
-        stageAction("7");
-    }
-
-    public void button8_onClick(View view) {
-        checkStage("number");
-        stageAction("8");
-    }
-
-    public void button9_onClick(View view) {
-        checkStage("number");
-        stageAction("9");
-    }
-
-    public void buttonDot_onClick(View view) {
-        if (!dotPushed) {
-            checkStage("number");
-            stageAction(".");
-        }
-        dotPushed = true;
-    }
-
-    public void buttonClear_onClick(View view) {
-        calculatorStage = 0;
-        lineOne.setText("");
-        lineTwo.setText("");
-        lineThree.setText("");
-        lineFour.setText("");
-        dotPushed = false;
-    }
-
-    public void buttonDelete_onClick(View view) {
-        if (calculatorStage == 1) {
-            lineOne.setText("");
-        } else if (lineOne.getText().length() > 0) {
-            lineOne.setText(lineOne.getText().subSequence(0, lineOne.getText().length() - 1));
-        }
-    }
-
-    public void buttonPlus_onClick(View view) {
-        checkStage("symbol");
-        stageAction("+");
-    }
-
-    public void buttonMinus_onClick(View view) {
-        checkStage("symbol");
-        stageAction("-");
-    }
-
-    public void buttonMultiply_onClick(View view) {
-        checkStage("symbol");
-        stageAction("x");
-    }
-
-    public void buttonDevide_onClick(View view) {
-        checkStage("symbol");
-        stageAction("/");
-    }
-
-    public void buttonEven_onClick(View view) {
-        if (calculatorStage == 2) {
-            lineFour.setText(lineThree.getText());
-            lineThree.setText(lineTwo.getText());
-            lineTwo.setText(lineOne.getText());
-            lineOne.setText("");
-            calculationSequence();
-            calculatorStage = 3;
-            dotPushed = false;
-        }
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void buttonPercent_onClick(View view) {
-        BigDecimal argumentForPercent;
-        switch (calculatorStage) {
-            case (0):
-                if (0 != lineOne.getText().length()) {
-                    lineTwo.setText(lineOne.getText());
-                    argumentForPercent = BigDecimal.valueOf(Double.parseDouble(lineTwo.getText().toString()) / 100);
-                    lineOne.setText(String.valueOf(argumentForPercent) + "%");
-                    calculatorStage = 3;
-                }
-                break;
-            case (1):
-                lineOne.setText("");
-                argumentForPercent = BigDecimal.valueOf(Double.parseDouble(lineTwo.getText().toString()) / 100);
-                lineOne.setText(String.valueOf(argumentForPercent) + "%");
-                calculatorStage = 3;
-                break;
+            case (3):
+                return R.style.MyCalculatorTheme;
             default:
-                break;
+                return R.style.Theme_Android_1_02;
         }
     }
 

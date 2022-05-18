@@ -22,250 +22,198 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_8"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_8"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button8_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_7"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_7"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button7_onClick"
         app:layout_constraintEnd_toStartOf="@id/button_8"
         app:layout_constraintTop_toTopOf="@id/button_8" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_9"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_9"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button9_onClick"
         app:layout_constraintStart_toEndOf="@id/button_8"
         app:layout_constraintTop_toTopOf="@id/guideline5" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_5"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_5"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button5_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/button_8" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_4"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_4"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button4_onClick"
         app:layout_constraintEnd_toStartOf="@id/button_5"
         app:layout_constraintTop_toBottomOf="@id/button_7" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_6"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_6"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button6_onClick"
         app:layout_constraintStart_toEndOf="@id/button_5"
         app:layout_constraintTop_toBottomOf="@id/button_9" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_2"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_2"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button2_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/button_5" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_1"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_1"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button1_onClick"
         app:layout_constraintEnd_toStartOf="@id/button_2"
         app:layout_constraintTop_toBottomOf="@id/button_4" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_3"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_3"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button3_onClick"
         app:layout_constraintStart_toEndOf="@id/button_2"
         app:layout_constraintTop_toBottomOf="@id/button_6" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_0"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_0"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="button0_onClick"
         app:layout_constraintEnd_toStartOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/button_2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_dot"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_dot"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonDot_onClick"
         app:layout_constraintStart_toEndOf="@id/button_0"
         app:layout_constraintTop_toBottomOf="@+id/button_3" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_multiply"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_multiply"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonMultiply_onClick"
         app:layout_constraintStart_toEndOf="@id/button_9"
         app:layout_constraintTop_toBottomOf="@id/guideline5" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_minus"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_minus"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonMinus_onClick"
         app:layout_constraintStart_toEndOf="@id/button_6"
         app:layout_constraintTop_toBottomOf="@id/button_multiply" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_plus"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_plus"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonPlus_onClick"
         app:layout_constraintStart_toEndOf="@id/button_3"
         app:layout_constraintTop_toBottomOf="@id/button_minus" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_even"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_even"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonEven_onClick"
         app:layout_constraintStart_toEndOf="@id/button_dot"
         app:layout_constraintTop_toBottomOf="@id/button_plus" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_devide"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_devide"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonDevide_onClick"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintStart_toEndOf="@id/button_percent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_percent"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_percent"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonPercent_onClick"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintStart_toEndOf="@id/button_delete" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_delete"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
-        android:onClick="buttonDelete_onClick"
         app:icon="@android:drawable/ic_input_delete"
         app:iconGravity="start"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
@@ -273,15 +221,12 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_clear"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/portrait_button_width"
         android:layout_height="@dimen/portrait_button_height"
         android:layout_marginEnd="@dimen/portrait_button_sideMargin"
         android:layout_marginStart="@dimen/portrait_button_sideMargin"
         android:text="@string/button_clear"
         android:textSize="@dimen/portrait_button_textSize"
-        android:fontFamily="@font/yeomanjackcondensed"
-        android:onClick="buttonClear_onClick"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toStartOf="@id/button_delete" />
 
@@ -321,17 +266,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Switch
-        android:id="@+id/switch_theme"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="15dp"
-        android:textSize="40sp"
-        android:onClick="themeSwitchOnClick"
-        app:layout_constraintEnd_toStartOf="@+id/button_0"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/themeButton"
+        android:layout_width="@dimen/portrait_button_width"
+        android:layout_height="@dimen/portrait_button_height"
+        android:layout_marginEnd="@dimen/portrait_button_sideMargin"
+        android:textSize="@dimen/portrait_button_textSize"
+        app:icon="@android:drawable/ic_menu_gallery"
+        app:layout_constraintEnd_toStartOf="@id/button_0"
         app:layout_constraintTop_toBottomOf="@+id/button_1" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

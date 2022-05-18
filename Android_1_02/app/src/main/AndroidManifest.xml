@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_1_02">
+        android:theme="@style/DayCalculatorTheme">
+        android:theme="@style/NightCalculatorTheme">
+        android:theme="@style/MyCalculatorTheme">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -17,6 +20,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ThemeActivity"
+            android:exported="true">
+
         </activity>
     </application>
 
