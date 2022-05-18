@@ -22,5 +22,9 @@
     <string name="button_starttext"> </string>
     <string name="themeSwitch_on">DAY</string>
     <string name="themeSwitch_off">off</string>
-
+    <string name="deafultTheme">Default Theme</string>
+    <string name="dayTheme">Day Theme</string>
+    <string name="nightTheme">Night Theme</string>
+    <string name="myTheme">My Theme</string>
+    <string name="applyThemeButton">Apply Theme</string>
 </resources>

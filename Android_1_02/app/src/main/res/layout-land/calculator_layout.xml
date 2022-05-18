@@ -22,7 +22,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_8"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -36,7 +35,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_7"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -50,7 +48,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_9"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -64,7 +61,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_5"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -78,7 +74,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_4"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -92,7 +87,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_6"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -106,7 +100,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_2"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -120,7 +113,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_1"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -134,7 +126,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_3"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -148,7 +139,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_0"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -162,7 +152,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_dot"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -176,7 +165,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_multiply"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -190,7 +178,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_minus"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -204,7 +191,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_plus"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -218,7 +204,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_even"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -232,7 +217,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_devide"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -249,7 +233,6 @@
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginStart="5dp"
-        android:backgroundTint="@color/button_grey"
         android:onClick="buttonPercent_onClick"
         android:text="@string/button_percent"
         android:textSize="@dimen/landscape_button_textSize"
@@ -259,7 +242,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_delete"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
@@ -272,7 +254,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_clear"
-        android:backgroundTint="@color/button_grey"
         android:layout_width="@dimen/landscape_button_width"
         android:layout_height="@dimen/landscape_button_height"
         android:layout_marginEnd="@dimen/landscape_button_sideMargin"
