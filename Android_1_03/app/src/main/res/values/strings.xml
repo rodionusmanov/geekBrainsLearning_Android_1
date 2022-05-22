@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Android_1_03</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_note">Первая заметка</string>
+    <string name="second_note">Вторая заметка</string>
+    <string name="third_note">Третья заметка</string>
+    <string name="first_description">Первое описание</string>
+    <string name="second_description">Второе описание</string>
+    <string name="third_description">Третье описание</string>
+    <string name="first_date">Первая дата</string>
+    <string name="second_date">Вторая дата</string>
+    <string name="third_date">Третья дата</string>
+    <string name="save_button">Сохранить заметку</string>
+    <string name="create_button">Новая заметка</string>
+    <string name="delete_button">Удалить заметку</string>
+    <string name="creation_date">Дата создания:</string>
+    <string name="pick_date">Сменить дату</string>
+
+</resources>

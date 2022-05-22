@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<string-array name="notes">
+        <item>@string/first_note</item>
+        <item>@string/second_note</item>
+        <item>@string/third_note</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>@string/first_description</item>
+        <item>@string/second_description</item>
+        <item>@string/third_description</item>
+    </string-array>
+
+    <string-array name="dates">
+        <item>@string/first_date</item>
+        <item>@string/second_date</item>
+        <item>@string/third_date</item>
+    </string-array>-->
+    <!--<integer-array name="notesNotes">
+        <item>@drawable/new_zealand</item>
+        <item>@drawable/germany</item>
+        <item>@drawable/brazil</item>
+    </integer-array>-->
+</resources>
