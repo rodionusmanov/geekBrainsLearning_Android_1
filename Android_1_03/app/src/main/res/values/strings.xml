@@ -16,5 +16,6 @@
     <string name="delete_button">Удалить заметку</string>
     <string name="creation_date">Дата создания:</string>
     <string name="pick_date">Сменить дату</string>
+    <string name="start_picture_text">ЗАМЕТКИ</string>
 
 </resources>

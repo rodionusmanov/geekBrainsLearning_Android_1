@@ -1,6 +1,9 @@
 package com.example.android_1_03;
 
-public class Note {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Note implements Parcelable {
     String noteName;
     String noteDescription;
     String noteCreationDate;
@@ -12,6 +15,25 @@ public class Note {
         this.noteCreationDate = noteCreationDate;
         this.index = index;
     }
+
+    protected Note(Parcel in) {
+        noteName = in.readString();
+        noteDescription = in.readString();
+        noteCreationDate = in.readString();
+        index = in.readInt();
+    }
+
+    public static final Creator<Note> CREATOR = new Creator<Note>() {
+        @Override
+        public Note createFromParcel(Parcel in) {
+            return new Note(in);
+        }
+
+        @Override
+        public Note[] newArray(int size) {
+            return new Note[size];
+        }
+    };
 
     public String getNoteName() {
         return noteName;
@@ -27,5 +49,34 @@ public class Note {
 
     public int getIndex() {
         return index;
+    }
+
+    public void setNoteName(String noteName) {
+        this.noteName = noteName;
+    }
+
+    public void setNoteDescription(String noteDescription) {
+        this.noteDescription = noteDescription;
+    }
+
+    public void setNoteCreationDate(String noteCreationDate) {
+        this.noteCreationDate = noteCreationDate;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(noteName);
+        parcel.writeString(noteDescription);
+        parcel.writeString(noteCreationDate);
+        parcel.writeInt(index);
     }
 }
