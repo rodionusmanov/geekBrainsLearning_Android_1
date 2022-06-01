@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/changeNameFragment">
+
+    <TextView
+        android:id="@+id/textViewOnChangeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="40sp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/editTextOnChangeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/applyChangesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_name"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        />
+</LinearLayout>

@@ -10,22 +10,31 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Parcelable;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public class NotesListFragment extends Fragment {
+    private static String addRemoceFavorites = "Добавить в избранное";
+    private static final int CONTEXT_MENU_FAVORITES = 1;
+    private static final int CONTEXT_MENU_DELETE = 2;
     public static ArrayList<Note> notes = new ArrayList<>();
     private static boolean isNewNote = false;
     private int notesSize = 0;
 
     Button createNoteButton;
+    private int contextIndex;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +55,6 @@ public class NotesListFragment extends Fragment {
             FirstNote();
         }
 
-        Bundle bundle = new Bundle();
         Bundle backBundle = this.getArguments();
         if (backBundle != null) {
             int index = backBundle.getInt("BackIndex");
@@ -81,6 +89,8 @@ public class NotesListFragment extends Fragment {
 
         for (int i = 0; i < notes.size(); i++) {
             TextView tv = new TextView(getContext());
+            contextIndex = i;
+            registerForContextMenu(tv);
             tv.setText(notes.get(i).getNoteName());
             tv.setTextSize(30);
             layoutView.addView(tv);
@@ -100,6 +110,24 @@ public class NotesListFragment extends Fragment {
         }
     }
 
+    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.add(0, CONTEXT_MENU_FAVORITES, 0, addRemoceFavorites);
+        menu.add(0, CONTEXT_MENU_DELETE, 0, "Удалить заметку");
+    }
+
+    public boolean onContextItemSelected(MenuItem item) {
+        item.getMenuInfo();
+        switch (item.getItemId()) {
+            case CONTEXT_MENU_FAVORITES:
+//                tv.setTex
+                break;
+            case CONTEXT_MENU_DELETE:
+//                deletingNote(index);
+                break;
+
+        }
+        return super.onContextItemSelected(item);
+    }
 
     private void showNoteExtendFragment(Bundle bundle) {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -137,5 +165,22 @@ public class NotesListFragment extends Fragment {
         notes.add(firstNote);
         notesSize++;
     }
+
+
+    public void deletingNote(int index) {
+        NotesListFragment notesListFragment = new NotesListFragment();
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+
+        Bundle deleteBundle = new Bundle();
+        deleteBundle.putBoolean("CheckDelete", true);
+        deleteBundle.putInt("BackIndex", index);
+        notesListFragment.setArguments(deleteBundle);
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, notesListFragment)
+                .addToBackStack(null)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+                .commit();
+    }
+
 
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/theme_switcher_container">
+
+    <RadioGroup
+        android:id="@+id/radioTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radio_default_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/deafultTheme"/>
+
+        <RadioButton
+            android:id="@+id/radio_day_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dayTheme" />
+
+        <RadioButton
+            android:id="@+id/radio_night_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nightTheme" />
+
+        <RadioButton
+            android:id="@+id/radio_undefault_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/unDefaultTheme" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/applyThemeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="@string/applyThemeButton" />
+
+</LinearLayout>
