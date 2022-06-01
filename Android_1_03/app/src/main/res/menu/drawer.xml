@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_drawer_choose_avatar"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/choose_avatar" />
+    <item
+        android:id="@+id/action_drawer_change_name"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/change_name" />
+    <item
+        android:id="@+id/action_drawer_theme_switcher"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/themes" />
+    <item
+        android:id="@+id/action_drawer_exit"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/exit" />
+
+</menu>
