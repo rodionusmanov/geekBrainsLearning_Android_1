@@ -36,5 +36,10 @@
     <string name="name">Пользователь</string>
     <string name="delete_note">Удалить заметку</string>
     <string name="add_remove_favorites">Добавить в избранное</string>
+    <string name="note_saved">Заметка сохранена</string>
+    <string name="note_rebuild">Восстановить</string>
+    <string name="note_deleted">Заметка удалена</string>
+    <string name="note_extended">Подробная информация</string>
+    <string name="main_list">Главный экран</string>
 
 </resources>

@@ -15,24 +15,28 @@
             android:id="@+id/radio_default_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/radioButtonStyle"
             android:text="@string/deafultTheme"/>
 
         <RadioButton
             android:id="@+id/radio_day_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/radioButtonStyle"
             android:text="@string/dayTheme" />
 
         <RadioButton
             android:id="@+id/radio_night_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/radioButtonStyle"
             android:text="@string/nightTheme" />
 
         <RadioButton
             android:id="@+id/radio_undefault_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/radioButtonStyle"
             android:text="@string/unDefaultTheme" />
 
     </RadioGroup>

@@ -12,9 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="radioButtonStyle">@style/radioButtonDefaultStyle</item>
 
-        <item name="android:textColor">@color/black</item>
-        <item name="android:background">@color/white</item>
+        <item name="drawerArrowStyle">@style/drawerIconStyle</item>
+       <!-- <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>-->
 
     </style>
 
@@ -27,6 +29,11 @@
         <item name="colorSecondary">@color/dimgrey</item>
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="radioButtonStyle">@style/radioButtonDayStyle</item>
 
         <item name="android:textColor">@color/black</item>
         <item name="android:background">@color/white</item>
@@ -42,11 +49,14 @@
         <item name="colorSecondary">@color/whitesmoke</item>
         <item name="colorSecondaryVariant">@color/grey</item>
         <item name="colorOnSecondary">@color/dimgrey</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="radioButtonStyle">@style/radioButtonNightStyle</item>
 
         <item name="android:textColor">@color/whitesmoke</item>
         <item name="android:background">@color/black</item>
-
-
     </style>
 
     <style name="UnDefaultTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -58,8 +68,47 @@
         <item name="colorSecondary">@color/forestgreen</item>
         <item name="colorSecondaryVariant">@color/darkgreen</item>
         <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="radioButtonStyle">@style/radioButtonUnDefaultStyle</item>
 
         <item name="android:textColor">@color/darkgreen</item>
         <item name="android:background">@color/palegreen</item>
     </style>
+
+
+    <style name="radioButtonDefaultStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/black</item>
+        <item name="background">@color/white</item>
+    </style>
+
+    <style name="radioButtonDayStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/black</item>
+        <item name="background">@color/white</item>
+    </style>
+
+    <style name="radioButtonNightStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/grey</item>
+        <item name="background">@color/black</item>
+    </style>
+
+    <style name="radioButtonUnDefaultStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/darkgreen</item>
+        <item name="background">@color/palegreen</item>
+    </style>
+
+    <style name="radioButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="drawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/white</item>
+    </style>
+
 </resources>

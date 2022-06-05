@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 public class ChooseAvatarFragment extends Fragment {
@@ -18,8 +20,17 @@ public class ChooseAvatarFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        setActionBar();
         return inflater.inflate(R.layout.choose_user_avatar, container, false);
+    }
+
+    private void setActionBar() {
+        setHasOptionsMenu(true);
+        ActionBar actionBar = ((AppCompatActivity)
+                requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setSubtitle(R.string.choose_avatar);
+        }
     }
 
     @Override

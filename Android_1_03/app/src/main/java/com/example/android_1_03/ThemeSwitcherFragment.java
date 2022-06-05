@@ -81,8 +81,9 @@ public class ThemeSwitcherFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 themeId = 3;
-                requireActivity().setTheme(codeStyleToStyleId(3));
+                requireActivity().setTheme(R.style.UnDefaultTheme);
                 redraw();
+
             }
         });
 
