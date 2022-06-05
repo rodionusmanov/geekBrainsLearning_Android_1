@@ -52,6 +52,8 @@
             android:layout_height="wrap_content"
             android:text="@string/save_button"
             android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -60,7 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/pick_date"
-            app:backgroundTint="@color/teal_200" />
+            app:backgroundTint="@color/teal_200"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/delete_button"
@@ -69,6 +73,8 @@
             android:text="@string/delete_button"
             android:backgroundTint="@color/black"
             android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
             />
 
     </LinearLayout>
