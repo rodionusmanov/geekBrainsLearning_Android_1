@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean startScreenWorked = false;
     private static String userName = "Пользователь";
     Bundle intent = new Bundle();
+    public static Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initStartScreen();
+
         initToolbarAndDrawer();
+
+        /*if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            NoteExtendFragment nef = NoteExtendFragment.newInstance(0);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container_right, nef)
+                    .addToBackStack(null)
+                    .commit();
+        }*/
+
+    }
+
+    private void initStartScreen() {
 
         TextView startTV = findViewById(R.id.start_text);
         ImageView startIV = findViewById(R.id.start_picture);
@@ -79,21 +97,10 @@ public class MainActivity extends AppCompatActivity {
                 startIV.setVisibility(View.GONE);
             }
         });
-
-
-        /*if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            NoteExtendFragment nef = NoteExtendFragment.newInstance(0);
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container_right, nef)
-                    .addToBackStack(null)
-                    .commit();
-        }*/
-
     }
 
     private void initToolbarAndDrawer() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initDrawer(toolbar);
     }
@@ -122,12 +129,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (id) {
                     case R.id.action_drawer_choose_avatar:
                         openChooseAvatarFragment();
+                        drawer.closeDrawers();
                         return true;
                     case R.id.action_drawer_change_name:
                         openChangeUserNameFragment();
+                        drawer.closeDrawers();
                         return true;
                     case R.id.action_drawer_theme_switcher:
                         openThemeSwitcherFragment();
+                        drawer.closeDrawers();
                         return true;
                     case R.id.action_drawer_exit:
                         finish();
