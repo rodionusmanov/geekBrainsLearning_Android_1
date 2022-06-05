@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/create_note_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/create_button"
-        />
+        android:text="@string/create_button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item"
+        tools:itemCount="5"
+        android:orientation="vertical"
+        tools:context=".NotesListFragment">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/formation_switch_button"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="26dp"
+        app:icon="@android:drawable/ic_dialog_dialer"
+        app:iconSize="20dp" />
+    </FrameLayout>
 
 </LinearLayout>

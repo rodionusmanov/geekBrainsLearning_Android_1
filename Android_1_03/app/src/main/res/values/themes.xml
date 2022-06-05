@@ -14,6 +14,8 @@
         <!-- Customize your theme here. -->
         <item name="radioButtonStyle">@style/radioButtonDefaultStyle</item>
 
+        <item name="cardViewStyle">@style/cardViewDefaultStyle</item>
+
         <item name="drawerArrowStyle">@style/drawerIconStyle</item>
        <!-- <item name="android:textColor">@color/black</item>
         <item name="android:background">@color/white</item>-->
@@ -35,8 +37,10 @@
 
         <item name="radioButtonStyle">@style/radioButtonDayStyle</item>
 
-        <item name="android:textColor">@color/black</item>
-        <item name="android:background">@color/white</item>
+        <item name="cardViewStyle">@style/cardViewDayStyle</item>
+
+        <!--<item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>-->
 
     </style>
 
@@ -52,11 +56,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
         <item name="radioButtonStyle">@style/radioButtonNightStyle</item>
 
-        <item name="android:textColor">@color/whitesmoke</item>
-        <item name="android:background">@color/black</item>
+        <item name="cardViewStyle">@style/cardViewNightStyle</item>
+
+       <!-- <item name="android:textColor">@color/whitesmoke</item>
+        <item name="android:background">@color/black</item>-->
     </style>
 
     <style name="UnDefaultTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -74,8 +79,10 @@
 
         <item name="radioButtonStyle">@style/radioButtonUnDefaultStyle</item>
 
-        <item name="android:textColor">@color/darkgreen</item>
-        <item name="android:background">@color/palegreen</item>
+        <item name="cardViewStyle">@style/cardViewUnDefaultStyle</item>
+
+        <!--<item name="android:textColor">@color/darkgreen</item>
+        <item name="android:background">@color/palegreen</item>-->
     </style>
 
 
@@ -110,5 +117,22 @@
     <style name="drawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@color/white</item>
     </style>
+
+    <style name="cardViewDefaultStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:backgroundTint">@color/purple_200</item>
+    </style>
+
+    <style name="cardViewDayStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:backgroundTint">@color/whitesmoke</item>
+    </style>
+
+    <style name="cardViewNightStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:backgroundTint">@color/grey</item>
+    </style>
+
+    <style name="cardViewUnDefaultStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:backgroundTint">@color/green</item>
+    </style>
+
 
 </resources>

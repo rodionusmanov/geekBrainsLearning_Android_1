@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 public class ChangeNameFragment extends Fragment {
@@ -21,8 +23,17 @@ public class ChangeNameFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        setActionBar();
         return inflater.inflate(R.layout.change_name_fragment, container, false);
+    }
+
+    private void setActionBar() {
+        setHasOptionsMenu(true);
+        ActionBar actionBar = ((AppCompatActivity)
+                requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setSubtitle(R.string.change_name);
+        }
     }
 
     @Override

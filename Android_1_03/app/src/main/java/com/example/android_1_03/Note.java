@@ -8,12 +8,15 @@ public class Note implements Parcelable {
     String noteDescription;
     String noteCreationDate;
     int index;
+    boolean favorite;
+
 
     public Note(String noteName, String noteDescription, String noteCreationDate, int index) {
         this.noteName = noteName;
         this.noteDescription = noteDescription;
         this.noteCreationDate = noteCreationDate;
         this.index = index;
+        this.favorite = false;
     }
 
     protected Note(Parcel in) {
@@ -79,4 +82,13 @@ public class Note implements Parcelable {
         parcel.writeString(noteCreationDate);
         parcel.writeInt(index);
     }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
+
 }
