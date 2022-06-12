@@ -4,94 +4,95 @@
     android:id="@+id/chooseAvatarFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <EditText
-        android:id="@+id/note_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:layout_marginBottom="5dp"/>
-
-    <EditText
-        android:id="@+id/note_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginBottom="5dp"/>
-
-
-    <TextView
-        android:id="@+id/note_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:layout_marginBottom="5dp"/>
-
-    <TextView
-        android:id="@+id/note_index"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:layout_marginBottom="5dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/save_button"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/save_button"
-            android:layout_weight="1"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            />
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:textColor="@color/black">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/pick_date"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/pick_date"
-            app:backgroundTint="@color/teal_200"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/note_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="36sp"
+                android:hint="@string/note_name"
+                android:inputType="textMultiLine|text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/delete_button"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/delete_button"
-            android:backgroundTint="@color/black"
-            android:layout_weight="1"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            />
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:textColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/note_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:hint="@string/note_description"
+                android:inputType="textMultiLine|text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/note_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/note_index"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:text="@string/save_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pick_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:text="@string/pick_date"
+                app:backgroundTint="@color/teal_200" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:text="@string/delete_button" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <DatePicker
-        android:id="@+id/datePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-
-
-
-    <!--<ImageView
-        android:id="@+id/flag_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:srcCompat="@tools:sample/avatars" />-->
-
-</LinearLayout>
 </androidx.core.widget.NestedScrollView>

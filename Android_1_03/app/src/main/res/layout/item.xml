@@ -17,12 +17,11 @@
         android:layout_margin="4dp"
         >
 
-        <!-- <ImageView
-             android:id="@+id/itemImageView"
+         <ImageView
+             android:id="@+id/image_favorite"
              android:layout_width="48dp"
              android:layout_height="48dp"
              app:srcCompat="@android:drawable/btn_star_big_on" />
-     -->
         <TextView
             android:id="@+id/itemTextView"
             android:layout_width="match_parent"
