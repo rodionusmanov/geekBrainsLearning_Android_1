@@ -1,5 +1,6 @@
 package com.example.android_1_03;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -17,32 +18,37 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.android_1_03.items.DataNotesSource;
+import com.example.android_1_03.items.IDataNoteSource;
 import com.example.android_1_03.items.NoteAdapter;
 import com.example.android_1_03.items.NotesClickListener;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class NotesListFragment extends Fragment {
     private static String addRemoveFavorites = "Добавить в избранное";
     private static final int CONTEXT_MENU_FAVORITES = 1;
     private static final int CONTEXT_MENU_DELETE = 2;
-    public static ArrayList<Note> notes = new ArrayList<>();
+    public static ArrayList<Note> list = new ArrayList<>();
     private static boolean isNewNote = false;
-    private int notesSize = 0;
     private int indexToDelete = 0;
     private static boolean firstLaunch = true;
     private static boolean formationList = true;
     private static boolean rebuild;
+
+    private Note note = null;
+    private IDataNoteSource dataNoteSource = new DataNotesSource();
 
     Button createNoteButton;
     Button formationSwitchButton;
@@ -72,15 +78,14 @@ public class NotesListFragment extends Fragment {
     }
 
     private void initList(View view) {
+
         LinearLayout layoutView = (LinearLayout) view;
         formationSwitchButton = view.findViewById(R.id.formation_switch_button);
         Bundle backBundle = this.getArguments();
 
-        notesSize = notes.size();
         if (firstLaunch && backBundle == null) {
             firstLaunch = false;
-            FirstNote();
-
+            list = dataNoteSource.getNotes();
         }
 
 
@@ -90,31 +95,27 @@ public class NotesListFragment extends Fragment {
             isNewNote = backBundle.getBoolean("BackCheckNew");
             if (backBundle.getBoolean("Rebuild")) {
                 isNewNote = true;
-                index = notes.size();
+                index = list.size();
             }
             rebuild = backBundle.getBoolean("Rebuild");
             if (backBundle.getBoolean("CheckDelete")) {
-                notes.remove(index);
-                notesSize = notes.size();
+                list.remove(index);
             } else if (isNewNote) {
                 if (!backBundle.getBoolean("Rebuild")) {
-                    notes.remove(index);
+                    list.remove(index);
                 }
-                notes.add(note);
+                list.add(note);
             } else {
-                notes.set(index, note);
+                list.set(index, note);
             }
             refreshNoteIndex();
         }
 
 
-        String[] names = new String[notes.size()];
+        String[] names = new String[list.size()];
 
-        ArrayList<Note> list = new ArrayList();
-
-        for (int i = 0; i < notesSize; i++) {
-            list.add(new Note(notes.get(i).noteName, notes.get(i).noteDescription, notes.get(i).noteCreationDate, notes.get(i).index));
-            names[i] = notes.get(i).noteName;
+        for (int i = 0; i < list.size(); i++) {
+            names[i] = list.get(i).noteName;
         }
         RecyclerView rv = requireActivity().findViewById(R.id.rvNotes);
         if (formationList) {
@@ -128,71 +129,74 @@ public class NotesListFragment extends Fragment {
 
         NoteAdapter adapter = new NoteAdapter();
         adapter.setList(list);
-        rv.setAdapter(adapter);
+
 //        registerForContextMenu(rv);
 
         adapter.setListener(new NotesClickListener() {
+
             @Override
             public void onTextViewClick(int position) {
+//                Toast.makeText(getContext(), "show " + String.valueOf(position), Toast.LENGTH_SHORT).show();
                 isNewNote = false;
-                Note note = notes.get(position);
+                Note note = list.get(position);
                 Bundle enterBundle = new Bundle();
                 enterBundle.putInt("Index", position);
                 enterBundle.putBoolean("CheckNewNote", isNewNote);
                 enterBundle.putParcelable("Note", note);
                 showNoteExtendFragment(enterBundle);
             }
+
+            @Override
+            public void onLongItemClick(int position) {
+//                Toast.makeText(getContext(), "show long " + String.valueOf(position), Toast.LENGTH_SHORT).show();
+                Activity activity = requireActivity();
+                TextView tv = (TextView) view.findViewById(R.id.itemTextView);
+                PopupMenu popupMenu = new PopupMenu(activity, tv);
+                activity.getMenuInflater().inflate(R.menu.context_menu_for_note, popupMenu.getMenu());
+                popupMenu.show();
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.action_add_remove_favorites:
+                                list.get(position).favorite = !list.get(position).favorite;
+                                rv.setAdapter(adapter);
+                                return true;
+                            case R.id.action_delete_note:
+                                list.remove(position);
+                                rv.setAdapter(adapter);
+                                return true;
+                        }
+                        return true;
+                    }
+                });
+            }
         });
 
+
+        rv.setAdapter(adapter);
 
         formationSwitchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(requireActivity(), MainActivity.class);
-                formationList = !formationList;
+                formationList = !formationList;;
                 intent.putExtra("StartScreenWorked", true);
                 requireActivity().finish();
                 startActivity(intent);
             }
         });
-        /* for (int i = 0; i < notes.size(); i++) {
 
-         *//*TextView tv = new TextView(getContext());
-            tv.setText(notes.get(i).getNoteName());
-            tv.setTextSize(30);
-            layoutView.addView(tv);*//*
-
-         *//*View item = getLayoutInflater().inflate(R.layout.item, layoutView, false);
-            TextView tv = item.findViewById(R.id.itemTextView);
-            tv.setText(notes.get(i).noteName);
-            layoutView.addView(item);
-            final int POSITION = i;
-
-            registerForContextMenu(tv);
-            tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    isNewNote = false;
-                    Note note = notes.get(POSITION);
-                    Bundle enterBundle = new Bundle();
-                    enterBundle.putInt("Index", POSITION);
-                    enterBundle.putBoolean("CheckNewNote", isNewNote);
-                    enterBundle.putParcelable("Note", note);
-                    showNoteExtendFragment(enterBundle);
-                }
-            });*//*
-        }*/
 
         createNoteButton = view.findViewById(R.id.create_note_button);
         createNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 isNewNote = true;
-                notesSize = notes.size();
-                Note note = new Note(" ", " ", " ", notes.size());
-                notes.add(note);
+                Note note = new Note("", "", "", list.size());
+                list.add(note);
                 Bundle enterBundle = new Bundle();
-                enterBundle.putInt("Index", notesSize);
+                enterBundle.putInt("Index", list.size() - 1);
                 enterBundle.putBoolean("CheckNewNote", isNewNote);
                 enterBundle.putParcelable("Note", note);
                 showNoteExtendFragment(enterBundle);
@@ -200,9 +204,28 @@ public class NotesListFragment extends Fragment {
         });
     }
 
+ /*   @Override
+    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = requireActivity().getMenuInflater();
+        inflater.inflate(R.menu.context_menu_for_note, menu);
+    }*/
+
+ /*   @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add_remove_favorites:
+                return true;
+            case R.id.action_delete_note:
+                return true;
+        }
+
+        return super.onContextItemSelected(item);
+    }*/
+
     private void refreshNoteIndex() {
         int index = 0;
-        for (Note note : notes) {
+        for (Note note : list) {
             note.index = index;
             index++;
         }
@@ -214,40 +237,16 @@ public class NotesListFragment extends Fragment {
         }
     }
 
-    /*public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
 
-        TextView tv = (TextView) v;
-        indexToDelete = findNoteByName(tv.getText());
-
-        menu.add(0, CONTEXT_MENU_FAVORITES, 0, addRemoveFavorites);
-        menu.add(0, CONTEXT_MENU_DELETE, 0, "Удалить заметку");
-    }*/
-
-    private int findNoteByName(CharSequence text) {
-        for (Note note : notes) {
+    /*private int findNoteByName(CharSequence text) {
+        for (Note note : list) {
             if (note.noteName.equals(text)) {
                 return note.index;
             }
         }
         return 0;
     }
-
-    public boolean onContextItemSelected(MenuItem item) {
-
-        Toast.makeText(requireContext(), String.valueOf(indexToDelete), Toast.LENGTH_SHORT).show();
-
-        item.getMenuInfo();
-        switch (item.getItemId()) {
-            case CONTEXT_MENU_FAVORITES:
-//                tv.setTex
-                break;
-            case CONTEXT_MENU_DELETE:
-                deletingNote(indexToDelete);
-                break;
-
-        }
-        return super.onContextItemSelected(item);
-    }
+*/
 
     private void showNoteExtendFragment(Bundle bundle) {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -277,15 +276,6 @@ public class NotesListFragment extends Fragment {
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
                 .commit();
     }
-
-    private void FirstNote() {
-        Date firstDate = new Date();
-        Note firstNote = new Note("First note", "First description",
-                String.valueOf(firstDate), notesSize);
-        notes.add(firstNote);
-        notesSize++;
-    }
-
 
     public void deletingNote(int index) {
         NotesListFragment notesListFragment = new NotesListFragment();

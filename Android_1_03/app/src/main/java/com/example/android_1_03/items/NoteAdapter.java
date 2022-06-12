@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NotesViewHolde
     @Override
     public void onBindViewHolder(@NonNull NotesViewHolder holder, int position) {
         holder.getItemView().<TextView>findViewById(R.id.itemTextView).setText(list.get(position).getNoteName());
+        if (list.get(position).isFavorite()) {
+            holder.getItemView().<ImageView>findViewById(R.id.image_favorite).setVisibility(View.VISIBLE);
+        } else {
+            holder.getItemView().<ImageView>findViewById(R.id.image_favorite).setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -55,7 +61,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NotesViewHolde
         return list.size();
     }
 
-    public class NotesViewHolder extends RecyclerView.ViewHolder{
+    public class NotesViewHolder extends RecyclerView.ViewHolder {
         private View itemView;
 
         public NotesViewHolder(@NonNull View itemView) {
@@ -65,6 +71,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NotesViewHolde
                 @Override
                 public void onClick(View view) {
                     listener.onTextViewClick(getAdapterPosition());
+                }
+            });
+            itemView.findViewById(R.id.itemTextView).setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    listener.onLongItemClick(getAdapterPosition());
+                    return true;
                 }
             });
         }

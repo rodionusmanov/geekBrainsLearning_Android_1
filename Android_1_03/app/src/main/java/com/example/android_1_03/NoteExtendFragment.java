@@ -1,5 +1,6 @@
 package com.example.android_1_03;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,13 +19,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class NoteExtendFragment extends Fragment {
 
     static private String ARG_INDEX = "index";
     int noteIndex = 0;
     private boolean isNewNote;
-    Note note = new Note(" ", " ", " ", noteIndex);
+    Note note = new Note("", "", "", noteIndex);
 
     @Nullable
     @Override
@@ -56,8 +58,8 @@ public class NoteExtendFragment extends Fragment {
             note = bundle.getParcelable("Note");
         }
 
-        TextView nameTextView = view.findViewById(R.id.note_name);
-        TextView descriptionTextView = view.findViewById(R.id.note_description);
+        TextInputEditText nameTextView = view.findViewById(R.id.note_name);
+        TextInputEditText descriptionTextView = view.findViewById(R.id.note_description);
         TextView dateTextView = view.findViewById(R.id.note_date);
         TextView indexTextView = view.findViewById(R.id.note_index);
 
@@ -66,15 +68,8 @@ public class NoteExtendFragment extends Fragment {
         dateTextView.setText(note.getNoteCreationDate());
         indexTextView.setText(String.valueOf(note.getIndex()));
 
-        DatePicker datePicker = view.findViewById(R.id.datePicker);
         Button datePick = view.findViewById(R.id.pick_date);
-        datePick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                StringBuilder dateBuilder = new StringBuilder().append(datePicker.getDayOfMonth()).append(".").append(datePicker.getMonth() + 1).append(".").append(datePicker.getYear());
-                dateTextView.setText(dateBuilder.toString());
-            }
-        });
+        datePick.setOnClickListener(view1 -> showDialogFragmentWithCustomView());
 
         Button saveButton;
         saveButton = view.findViewById(R.id.save_button);
@@ -84,14 +79,13 @@ public class NoteExtendFragment extends Fragment {
 
                 Toast.makeText(requireContext(), R.string.note_saved, Toast.LENGTH_SHORT).show();
 
-                StringBuilder dateBuilder = new StringBuilder().append(datePicker.getDayOfMonth()).append(".").append(datePicker.getMonth() + 1).append(".").append(datePicker.getYear());
                 Note note = new Note(String.valueOf(nameTextView.getText()),
                         String.valueOf(descriptionTextView.getText()),
-                        dateBuilder.toString(), noteIndex);
+                        String.valueOf(dateTextView.getText()), noteIndex);
 
                 note.setNoteName(String.valueOf(nameTextView.getText()));
                 note.setNoteDescription(String.valueOf(descriptionTextView.getText()));
-                note.setNoteCreationDate(dateBuilder.toString());
+                note.setNoteCreationDate(String.valueOf(dateTextView.getText()));
                 note.setIndex(noteIndex);
                 Bundle backBundle = new Bundle();
                 backBundle.putInt("BackIndex", noteIndex);
@@ -150,4 +144,10 @@ public class NoteExtendFragment extends Fragment {
         fragment.setArguments(bundle);
         return fragment;
     }
+
+    private void showDialogFragmentWithCustomView() {
+        new DateDialogFragment().show(requireActivity().getSupportFragmentManager(), DateDialogFragment.TAG);
+    }
+
+
 }
