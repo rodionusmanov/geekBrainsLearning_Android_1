@@ -3,11 +3,23 @@ package com.example.android_1_03;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Note implements Parcelable {
+
+    @SerializedName("noteName")
     String noteName;
+
+    @SerializedName("noteDescription")
     String noteDescription;
+
+    @SerializedName("noteCreationDate")
     String noteCreationDate;
+
+    @SerializedName("index")
     int index;
+
+    @SerializedName("favorite")
     boolean favorite;
 
 

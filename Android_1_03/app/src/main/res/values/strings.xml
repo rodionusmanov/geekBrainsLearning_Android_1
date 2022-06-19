@@ -45,5 +45,7 @@
     <string name="note_name">Note name</string>
     <string name="note_description">Note description</string>
     <string name="save_date">Сохранить дату</string>
+    <string name="note_creation_date">Note creation date</string>
+    <string name="note_index">Note Index</string>
 
 </resources>

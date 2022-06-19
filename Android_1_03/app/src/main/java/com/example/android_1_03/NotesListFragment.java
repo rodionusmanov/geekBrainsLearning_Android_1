@@ -1,7 +1,9 @@
 package com.example.android_1_03;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -33,6 +35,7 @@ import com.example.android_1_03.items.DataNotesSource;
 import com.example.android_1_03.items.IDataNoteSource;
 import com.example.android_1_03.items.NoteAdapter;
 import com.example.android_1_03.items.NotesClickListener;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
@@ -41,11 +44,15 @@ public class NotesListFragment extends Fragment {
     private static final int CONTEXT_MENU_FAVORITES = 1;
     private static final int CONTEXT_MENU_DELETE = 2;
     public static ArrayList<Note> list = new ArrayList<>();
+    public static ArrayList<Note> listTest = new ArrayList<>();
     private static boolean isNewNote = false;
     private int indexToDelete = 0;
     private static boolean firstLaunch = true;
     private static boolean formationList = true;
     private static boolean rebuild;
+    private final String PREFS = "PREFS";
+    private final String PREFS_SIZE = "NOTE_PREFS_SIZE";
+    private final String PREFS_NOTE = "NOTE_PREFS_UNIT";
 
     private Note note = null;
     private IDataNoteSource dataNoteSource = new DataNotesSource();
@@ -78,14 +85,31 @@ public class NotesListFragment extends Fragment {
     }
 
     private void initList(View view) {
-
         LinearLayout layoutView = (LinearLayout) view;
         formationSwitchButton = view.findViewById(R.id.formation_switch_button);
+
+        SharedPreferences noteListPreferences = requireActivity().getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        int notesSize = noteListPreferences.getInt(PREFS_SIZE, 0);
+
+        if (notesSize == 0) {
+            list/*Test*/ = dataNoteSource.getNotes();
+        } else {
+            list/*Test*/.clear();
+            for (int i = 0; i < notesSize; i++) {
+                String noteString = noteListPreferences.getString(PREFS_NOTE + String.valueOf(i), null);
+                Note note = new GsonBuilder().create().fromJson(noteString, Note.class);
+                list/*Test*/.add(note);
+            }
+        }
+//
+//        String noteListString = noteListPreferences.getString(PREFS_NOTES_KEY, null);
+
+
         Bundle backBundle = this.getArguments();
 
         if (firstLaunch && backBundle == null) {
             firstLaunch = false;
-            list = dataNoteSource.getNotes();
+//            list = dataNoteSource.getNotes();
         }
 
 
@@ -99,16 +123,20 @@ public class NotesListFragment extends Fragment {
             }
             rebuild = backBundle.getBoolean("Rebuild");
             if (backBundle.getBoolean("CheckDelete")) {
-                list.remove(index);
+                if (!isNewNote) {
+                    list.remove(index);
+                }
             } else if (isNewNote) {
                 if (!backBundle.getBoolean("Rebuild")) {
-                    list.remove(index);
+//                    list.remove(index);
                 }
                 list.add(note);
             } else {
                 list.set(index, note);
             }
             refreshNoteIndex();
+            refreshNotesState();
+
         }
 
 
@@ -161,10 +189,12 @@ public class NotesListFragment extends Fragment {
                             case R.id.action_add_remove_favorites:
                                 list.get(position).favorite = !list.get(position).favorite;
                                 rv.setAdapter(adapter);
+                                refreshNotesState();
                                 return true;
                             case R.id.action_delete_note:
                                 list.remove(position);
                                 rv.setAdapter(adapter);
+                                refreshNotesState();
                                 return true;
                         }
                         return true;
@@ -180,7 +210,8 @@ public class NotesListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(requireActivity(), MainActivity.class);
-                formationList = !formationList;;
+                formationList = !formationList;
+                ;
                 intent.putExtra("StartScreenWorked", true);
                 requireActivity().finish();
                 startActivity(intent);
@@ -194,14 +225,24 @@ public class NotesListFragment extends Fragment {
             public void onClick(View view) {
                 isNewNote = true;
                 Note note = new Note("", "", "", list.size());
-                list.add(note);
+                note.favorite = false;
+//                list.add(note);
                 Bundle enterBundle = new Bundle();
-                enterBundle.putInt("Index", list.size() - 1);
+                enterBundle.putInt("Index", list.size());
                 enterBundle.putBoolean("CheckNewNote", isNewNote);
                 enterBundle.putParcelable("Note", note);
                 showNoteExtendFragment(enterBundle);
             }
         });
+    }
+
+    private void refreshNotesState() {
+        SharedPreferences noteListPreferences = requireActivity().getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        noteListPreferences.edit().putInt(PREFS_SIZE, list.size()).apply();
+        for (int i = 0; i < list.size(); i++) {
+            String noteString = new GsonBuilder().create().toJson(list.get(i));
+            noteListPreferences.edit().putString(PREFS_NOTE + String.valueOf(i), noteString).apply();
+        }
     }
 
  /*   @Override

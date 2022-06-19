@@ -60,12 +60,22 @@ public class NoteExtendFragment extends Fragment {
 
         TextInputEditText nameTextView = view.findViewById(R.id.note_name);
         TextInputEditText descriptionTextView = view.findViewById(R.id.note_description);
-        TextView dateTextView = view.findViewById(R.id.note_date);
-        TextView indexTextView = view.findViewById(R.id.note_index);
+        TextInputEditText dateTextView = view.findViewById(R.id.note_date);
+        TextInputEditText indexTextView = view.findViewById(R.id.note_index);
+
+        DatePicker hiddenDatePicker = requireActivity().findViewById(R.id.hidden_date_picker);
 
         nameTextView.setText(note.getNoteName());
         descriptionTextView.setText(note.getNoteDescription());
-        dateTextView.setText(note.getNoteCreationDate());
+        if (note.noteCreationDate.equals("")) {
+            StringBuilder dateBuilder = new StringBuilder()
+                    .append(hiddenDatePicker.getDayOfMonth())
+                    .append(".").append(hiddenDatePicker.getMonth() + 1)
+                    .append(".").append(hiddenDatePicker.getYear());
+            dateTextView.setText(dateBuilder.toString());
+        } else {
+            dateTextView.setText(note.getNoteCreationDate());
+        }
         indexTextView.setText(String.valueOf(note.getIndex()));
 
         Button datePick = view.findViewById(R.id.pick_date);
@@ -79,10 +89,12 @@ public class NoteExtendFragment extends Fragment {
 
                 Toast.makeText(requireContext(), R.string.note_saved, Toast.LENGTH_SHORT).show();
 
-                Note note = new Note(String.valueOf(nameTextView.getText()),
-                        String.valueOf(descriptionTextView.getText()),
-                        String.valueOf(dateTextView.getText()), noteIndex);
-
+                if (isNewNote) {
+                    Note note = new Note(String.valueOf(nameTextView.getText()),
+                            String.valueOf(descriptionTextView.getText()),
+                            String.valueOf(dateTextView.getText()), noteIndex);
+                    note.favorite = false;
+                }
                 note.setNoteName(String.valueOf(nameTextView.getText()));
                 note.setNoteDescription(String.valueOf(descriptionTextView.getText()));
                 note.setNoteCreationDate(String.valueOf(dateTextView.getText()));
@@ -93,6 +105,7 @@ public class NoteExtendFragment extends Fragment {
                 backBundle.putBoolean("BackCheckNew", isNewNote);
                 backBundle.putParcelable("BackNote", note);
                 backBundle.putBoolean("Rebuild", false);
+
                 RefreshNotesList(backBundle);
             }
         });
@@ -116,7 +129,7 @@ public class NoteExtendFragment extends Fragment {
                         RefreshNotesList(deleteBundle);
                     }
                 }).show();
-
+                deleteBundle.putBoolean("BackCheckNew", isNewNote);
                 deleteBundle.putBoolean("CheckDelete", true);
                 deleteBundle.putInt("BackIndex", noteIndex);
                 deleteBundle.putBoolean("Rebuild", false);
