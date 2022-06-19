@@ -42,21 +42,39 @@
                 android:inputType="textMultiLine|text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/note_date"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/black">
 
-        <TextView
-            android:id="@+id/note_index"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/note_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:hint="@string/note_creation_date"
+                android:inputType="text"
+                android:textSize="24sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/note_index"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:hint="@string/note_index"
+                android:inputType="text"
+                android:textSize="24sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,6 +111,10 @@
                 android:text="@string/delete_button" />
 
         </LinearLayout>
-
+<DatePicker
+    android:id="@+id/hidden_date_picker"
+    android:layout_width="10dp"
+    android:layout_height="10dp"
+    android:visibility="invisible"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
